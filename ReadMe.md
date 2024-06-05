@@ -19,7 +19,7 @@ This repository contains various Java Swing projects developed as part of the 6t
 - **Custom Components:** Advanced examples featuring custom components and rendering techniques.
 - **Complete Applications:** Full-fledged applications integrating multiple concepts and functionalities.
 
-## Technologies Used
+## Technologies Used[Learning](..%2F..%2F..%2F6thsem%2FNETWORKING%2FLearning)
 - **Programming Language:** Java
 - **GUI Framework:** Swing
 
