@@ -19,11 +19,11 @@ This repository contains various Java Swing projects developed as part of the 6t
 - **Custom Components:** Advanced examples featuring custom components and rendering techniques.
 - **Complete Applications:** Full-fledged applications integrating multiple concepts and functionalities.
 
-## Technologies Used[Learning](..%2F..%2F..%2F6thsem%2FNETWORKING%2FLearning)
+## Technologies Used
 - **Programming Language:** Java
 - **GUI Framework:** Swing
 
 
 ## Advanced Java
-[Unit -1 GUI Programming](https://github.com/LeahDeshar/java-swing/tree/master/src/unitOne)
-
+1. [Unit -1 GUI Programming](https://github.com/LeahDeshar/java-swing/tree/master/src/unitOne)
+   - [All Basic Components](https://github.com/LeahDeshar/java-swing/tree/master/src/basicComponent)
