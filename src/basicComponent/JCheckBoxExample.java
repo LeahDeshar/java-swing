@@ -4,29 +4,27 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class JRadioExample {
+public class JCheckBoxExample {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("JRadio Example");
+
+        JFrame frame = new JFrame("JCheckBox Example");
         frame.setSize(350, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
 
-        JRadioButton radio1,radio2;
-        radio1 = new JRadioButton("Option 1");
-        radio2 = new JRadioButton("Option 2");
+        JCheckBox checkbox1,checkbox2;
+        checkbox1 = new JCheckBox("Option 1");
+        checkbox2 = new JCheckBox("Option 2");
 
-        // select only one option in radio
-        ButtonGroup group = new ButtonGroup();
-        group.add(radio1);
-        group.add(radio2);
+
 
         JButton submitButton = new JButton("Submit");
 
         // Label to display the selected option
         JLabel resultLabel = new JLabel("Selected option will be displayed here");
 
-        panel.add(radio1);
-        panel.add(radio2);
+        panel.add(checkbox1);
+        panel.add(checkbox2);
         panel.add(submitButton);
         panel.add(resultLabel);
 
@@ -36,9 +34,11 @@ public class JRadioExample {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String selectedOption = "No option selected";
-                if (radio1.isSelected()) {
+                if (checkbox1.isSelected() && checkbox2.isSelected()) {
+                    selectedOption = "Option 1 and Option 2";
+                } else if (checkbox1.isSelected()) {
                     selectedOption = "Option 1";
-                } else if (radio2.isSelected()) {
+                } else if (checkbox2.isSelected()) {
                     selectedOption = "Option 2";
                 }
                 resultLabel.setText("Selected option: " + selectedOption);
