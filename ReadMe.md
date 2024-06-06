@@ -28,3 +28,4 @@ This repository contains various Java Swing projects developed as part of the 6t
 1. [Unit -1 GUI Programming](https://github.com/LeahDeshar/java-swing/tree/master/src/unitOne)
    - [All Basic Components SWING](https://github.com/LeahDeshar/java-swing/tree/master/src/basicComponent)
    - [Basic Components AWT](https://github.com/LeahDeshar/java-swing/tree/master/src/BasicComponentAWT)
+   - [Layout Manager](https://github.com/LeahDeshar/java-swing/tree/master/src/layoutManager)
