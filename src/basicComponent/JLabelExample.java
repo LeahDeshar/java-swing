@@ -41,6 +41,7 @@ public class JLabelExample extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(JLabelExample::new);
+
+        new JLabelExample();
     }
 }
