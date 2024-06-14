@@ -6,33 +6,6 @@ import java.awt.event.ActionListener;
 
 public class ActionEventExample {
     public static void main(String[] args) {
-//        JFrame frame = new JFrame("ActionEvent Example");
-//        JButton button = new JButton("Click Me");
-//        frame.add(button);
-//
-//        button.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                // Handle the action event
-//                System.out.println("Button clicked!");
-//                System.out.println("Action Command: " + e.getActionCommand());
-//                System.out.println("Modifiers: " + e.getModifiers());
-//            }
-//        });
-//
-//        // Manually creating an ActionEvent
-//        ActionEvent event = new ActionEvent(button, ActionEvent.ACTION_PERFORMED, "ButtonClicked", ActionEvent.CTRL_MASK);
-//
-//        // Simulating the action event
-//        for (ActionListener listener : button.getActionListeners()) {
-//            listener.actionPerformed(event);
-//        }
-//
-//        frame.setSize(300, 200);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setVisible(true);
-
-
         JFrame frame = new JFrame("ActionEvent Example");
         JButton button = new JButton("Click Me");
         frame.setLayout(null);
@@ -46,9 +19,11 @@ public class ActionEventExample {
                 System.out.println("Button clicked!");
                 System.out.println("Action Command: " + e.getActionCommand());
                 System.out.println("Modifiers: " + e.getModifiers());
-                System.out.println(e.getSource());
-                System.out.println(e.getWhen());
-                System.out.println(e.getID());
+                System.out.println( "Source " + e.getSource());
+                System.out.println("When " + e.getWhen());
+                System.out.println("Id " + e.getID());
+                System.out.println("get params " + e.paramString());
+
 
                 if ((e.getModifiers() & ActionEvent.ALT_MASK) != 0) {
                     System.out.println("Alt key pressed.");
