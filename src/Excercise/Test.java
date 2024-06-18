@@ -20,10 +20,11 @@ class Example{
 
 
         JPanel loginPanel = new JPanel();
-        loginPanel.setLayout(new GridLayout(2,2));
-        loginPanel.setBounds(20,20,400,100);
+        loginPanel.setLayout(new GridLayout(4,2));
+        loginPanel.setBounds(20,20,400,120);
         loginPanel.setBorder(BorderFactory.createTitledBorder("Login Form"));
 //        loginPanel.setBackground(Color.YELLOW);
+
 
 
         loginPanel.add(new JLabel("Username:"));
@@ -32,9 +33,33 @@ class Example{
         loginPanel.add(new JPasswordField());
         mainLoginPanel.add(loginPanel);
 
+
+        JCheckBox ch1 ,ch2;
+        ch1 = new JCheckBox("C++");
+        ch2 = new JCheckBox("Java");
+        ch1.setBounds(20,120,100,20);
+        ch2.setBounds(120,150,100,20);
+        loginPanel.add(ch1);
+        loginPanel.add(ch2);
+
+
+//        radio button with the button group
+        ButtonGroup bg = new ButtonGroup();
+        JRadioButton r1 = new JRadioButton("Female");
+        JRadioButton r2 = new JRadioButton("Male");
+
+
+        bg.add(r1);
+        bg.add(r2);
+        r1.setBounds(20,150,100,20);
+        r2.setBounds(120,180,100,20);
+        loginPanel.add(r1);
+        loginPanel.add(r2);
+
+
+
         JButton btn = new JButton("Login");
-        btn.setSize(30,50);
-        btn.setBounds(20,120,140,20);
+        btn.setBounds(20,150,130,30);
         mainLoginPanel.add(btn);
         frame.add(mainLoginPanel,BorderLayout.CENTER);
 
