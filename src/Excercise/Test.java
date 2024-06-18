@@ -3,9 +3,11 @@ package Excercise;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 class Example{
-    public Example(){
+    public Example()  {
         JFrame frame = new JFrame("Example");
         frame.setSize(500,500);
         frame.setLayout(new BorderLayout());
@@ -20,7 +22,7 @@ class Example{
 
 
         JPanel loginPanel = new JPanel();
-        loginPanel.setLayout(new GridLayout(4,2));
+        loginPanel.setLayout(new GridLayout(5,2));
         loginPanel.setBounds(20,20,400,120);
         loginPanel.setBorder(BorderFactory.createTitledBorder("Login Form"));
 //        loginPanel.setBackground(Color.YELLOW);
@@ -35,12 +37,14 @@ class Example{
 
 
         JCheckBox ch1 ,ch2;
-        ch1 = new JCheckBox("C++");
+        ch1 = new JCheckBox("Node.js");
         ch2 = new JCheckBox("Java");
         ch1.setBounds(20,120,100,20);
         ch2.setBounds(120,150,100,20);
         loginPanel.add(ch1);
         loginPanel.add(ch2);
+
+
 
 
 //        radio button with the button group
@@ -57,6 +61,24 @@ class Example{
         loginPanel.add(r2);
 
 
+        ImageIcon icon = null;
+
+        try {
+//        ImageIcon url
+            URL url = new URL("https://png.pngtree.com/element_our/png/20181206/users-vector-icon-png_260862.jpg");
+
+            icon = new ImageIcon(url);
+//            set height and width of icon
+            Image img = icon.getImage();
+            Image newImg = img.getScaledInstance(150,100,Image.SCALE_DEFAULT);
+            icon = new ImageIcon(newImg);
+        }catch
+        (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        JLabel label = new JLabel(icon);
+        label.setBounds(20,150,50,100);
+        loginPanel.add(label);
 
         JButton btn = new JButton("Login");
         btn.setBounds(20,150,130,30);
