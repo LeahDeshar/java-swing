@@ -3,6 +3,8 @@ package Excercise;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -29,10 +31,17 @@ class Example{
 
 
 
-        loginPanel.add(new JLabel("Username:"));
-        loginPanel.add(new JTextField());
-        loginPanel.add(new JLabel("Password:"));
-        loginPanel.add(new JPasswordField());
+        JLabel userName = new JLabel("Enter Your name");
+        loginPanel.add(userName);
+
+        JTextField userNameFld = new JTextField();
+        loginPanel.add(userNameFld);
+
+        JLabel password = new JLabel("Enter Your Password");
+        loginPanel.add(password);
+
+        JPasswordField  passwordFld = new JPasswordField();
+        loginPanel.add(passwordFld);
         mainLoginPanel.add(loginPanel);
 
 
@@ -43,6 +52,8 @@ class Example{
         ch2.setBounds(120,150,100,20);
         loginPanel.add(ch1);
         loginPanel.add(ch2);
+
+
 
 
 
@@ -76,6 +87,7 @@ class Example{
         (MalformedURLException e) {
             e.printStackTrace();
         }
+
         JLabel label = new JLabel(icon);
         label.setBounds(20,150,50,100);
         loginPanel.add(label);
@@ -90,6 +102,41 @@ class Example{
         frame.setVisible(true);
 
 
+
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle login action here
+                String username = userNameFld.getText();
+                String password = new String(passwordFld.getPassword());
+
+                String selectedOption = "No option selected";
+                if (ch1.isSelected() && ch2.isSelected()) {
+                    selectedOption = "Node.js and Java";
+                } else if (ch1.isSelected()) {
+                    selectedOption = "Node.js";
+                } else if (ch2.isSelected()) {
+                    selectedOption = "Java";
+                }
+
+                String selectedRadio = "No option selected";
+                if (r1.isSelected()) {
+                    selectedRadio = "Female";
+                } else if (r2.isSelected()) {
+                    selectedRadio = "Male";
+                }
+//                resultLabel.setText("Selected option: " + selectedOption);
+                JOptionPane.showMessageDialog(frame, "Username: " + username + "\nPassword: " + password + "\nBest Language: " + selectedOption + "\nGender: " + selectedRadio);
+            }
+        });
+
+//        cancelButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                // Handle cancel action here
+//                userText.setText("");
+//                passText.setText("");
+//            }
     }
 
     private static void DisplayPanelExample(JFrame frame) {
