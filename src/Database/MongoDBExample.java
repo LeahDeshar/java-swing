@@ -1,45 +1,53 @@
 package Database;
 
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
 
-import java.util.Arrays;
-
-import static com.mongodb.client.model.Filters.*;
-import static com.mongodb.client.model.Updates.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class MongoDBExample {
     public static void main(String[] args) {
         // Connect to MongoDB
-        MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+        try {
 
-        // Create a database
-        MongoDatabase database = mongoClient.getDatabase("mydb");
+            // Register the MongoDB JDBC driver
+            Class.forName("com.dbschema.MongoJdbcDriver");
 
-        // Create a collection
-        MongoCollection<Document> collection = database.getCollection("test");
+            // MongoDB connection URL
+            String url = "jdbc:mongodb://localhost:27017/products"; // Replace with your MongoDB URI and database name
 
-        // Insert a document
-        Document doc = new Document("name", "MongoDB")
-                .append("type", "database")
-                .append("count", 1)
-                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
-                .append("info", new Document("x", 203).append("y", 102));
-        collection.insertOne(doc);
+//            // MongoDB credentials (if required)
+//            String username = "yourUsername";
+//            String password = "yourPassword";
 
-        // Find documents
-        Document myDoc = collection.find(eq("name", "MongoDB")).first();
-        System.out.println(myDoc.toJson());
+            // Establish the connection
+            Connection conn = DriverManager.getConnection(url);
 
-        // Update a document
-        collection.updateOne(eq("name", "MongoDB"), combine(set("count", 101), set("info.x", 999)));
+            // Perform a query
+            String query = "SELECT * FROM user"; // Replace with your collection name
 
-        // Delete a document
-        collection.deleteOne(eq("name", "MongoDB"));
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
 
-        mongoClient.close();
+            // Process the results
+            while (rs.next()) {
+                // Example: Retrieve data from each row
+                String fieldValue = rs.getString("name"); // Replace with your field name
+                System.out.println("Field Value: " + fieldValue);
+            }
+
+            // Close resources
+            rs.close();
+            stmt.close();
+            conn.close();
+
+        } catch (ClassNotFoundException e) {
+            System.err.println("MongoDB JDBC driver not found in classpath: " + e.getMessage());
+            e.printStackTrace();
+            // Handle the exception (e.g., log it, exit gracefully)
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
