@@ -10,6 +10,15 @@ public class Creation {
         String username = "root";
         String password = "password";
 
+
+//        register the driver
+//        try {
+//            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return;
+//        }
+
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             // Create table
             createTable(connection);
