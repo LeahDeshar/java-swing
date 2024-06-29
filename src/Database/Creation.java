@@ -22,6 +22,7 @@ public class Creation {
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             // Create table
             createTable(connection);
+            readOneData(connection);
 
             // Insert data
             insertData(connection, "John", 25);
@@ -47,7 +48,8 @@ public class Creation {
 
 
     private static void createTable(Connection connection) throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS users ("+"id INT AUTO_INCREMENT PRIMARY KEY," +
+        String sql = "CREATE TABLE IF NOT EXISTS users ("
+                +"id INT AUTO_INCREMENT PRIMARY KEY," +
                 "name VARCHAR(255)," +  "age INT" +  ")";
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(sql);
@@ -74,6 +76,20 @@ public class Creation {
                 String name = resultSet.getString("name");
                 int age = resultSet.getInt("age");
                 System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age);
+            }
+        }
+    }
+    private static void readOneData(Connection connection) throws SQLException {
+
+       /* String sql = "SELECT * FROM users";*/
+        String sql = "SELECT * FROM users WHERE id = 8";
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            if (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int age = resultSet.getInt("age");
+                System.out.println("ID of one: " + id + ", Name: " + name + ", Age: " + age);
             }
         }
     }
