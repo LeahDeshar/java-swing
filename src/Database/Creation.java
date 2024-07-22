@@ -1,16 +1,11 @@
 package Database;
-
-
 import java.sql.*;
-
 public class Creation {
     public static void main(String[] args) {
         // JDBC URL for MySQL database
         String url = "jdbc:mysql://localhost:3306/javalesson";
         String username = "root";
         String password = "password";
-
-
 //        register the driver
 //        try {
 //            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
@@ -18,7 +13,6 @@ public class Creation {
 //            e.printStackTrace();
 //            return;
 //        }
-
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             // Create table
             createTable(connection);
