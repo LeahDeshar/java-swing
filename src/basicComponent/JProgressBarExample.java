@@ -15,7 +15,7 @@ public class JProgressBarExample {
         // Create a JProgressBar
         JProgressBar progressBar = new JProgressBar(0, 100);
         progressBar.setValue(0);
-        progressBar.setStringPainted(true);
+//        progressBar.setStringPainted(true);
 
         // Add the JProgressBar to the frame
         frame.add(progressBar);

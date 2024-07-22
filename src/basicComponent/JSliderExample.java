@@ -15,8 +15,8 @@ public class JSliderExample {
 
         // Create a JSlider
         JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
-        slider.setMajorTickSpacing(10);
-        slider.setMinorTickSpacing(1);
+//        slider.setMajorTickSpacing(10);
+//        slider.setMinorTickSpacing(1);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
 
