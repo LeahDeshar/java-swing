@@ -67,30 +67,7 @@ public class ResultSetMethodsExample {
             e.printStackTrace();
         } finally {
             // Close the ResultSet
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            // Close the Statement
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-            // Close the Connection
-            if (conn != null) {
-                try {
-                    conn.close();
-                    System.out.println("Connection closed.");
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+
         }
     }
 

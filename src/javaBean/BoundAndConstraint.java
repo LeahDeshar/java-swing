@@ -1,10 +1,5 @@
 package javaBean;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.beans.VetoableChangeListener;
-import java.beans.VetoableChangeSupport;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
+import java.beans.*;
 import java.io.Serializable;
 public class BoundAndConstraint {
     public static void main(String[] args) {
@@ -22,7 +17,7 @@ public class BoundAndConstraint {
         try {
             employee.setAge(25);
             employee.setAge(-5); // This will throw a PropertyVetoException
-        } catch (java.beans.PropertyVetoException e) {
+        } catch (PropertyVetoException e) {
             System.out.println("Failed to set age: " + e.getMessage());
         }
 
@@ -83,7 +78,7 @@ class Employee implements Serializable {
     }
 
     // Setter for age with VetoableChangeSupport
-    public void setAge(int age) throws java.beans.PropertyVetoException {
+    public void setAge(int age) throws PropertyVetoException {
         int oldAge = this.age;
         vcs.fireVetoableChange("age", oldAge, age);
         this.age = age;
